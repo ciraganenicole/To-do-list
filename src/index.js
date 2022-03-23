@@ -6,11 +6,14 @@ class Tasks {
   }
 
     generate = () => {
-      const dell = this.tasks.map((task) => ` <li class="task">
+      const dell = this.tasks.map((task) => {
+        const htmlText = ` <li class="task">
                <div> <button type="button"><i class="fa-regular fa-square" ${task.completed} ></i></button>
                 <p class="text">${task.description}</p></div>
                 <a href=""><i class="fa-solid fa-ellipsis-vertical" ${task.index += 1}></i></a>
-                </li>`).join(' ');
+                </li>`;
+        return htmlText;
+      }).join(' ');
       const container = document.getElementById('tasks');
       container.innerHTML = dell;
     }
