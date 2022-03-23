@@ -4,6 +4,7 @@
 > This project has as aim to teach us about webpack and generating a list of tasks, add, delete, drag and drop them in their box.
 
 
+![todo](https://user-images.githubusercontent.com/72297212/159683357-0d7ac584-78a0-473d-8a7d-e74e12dc1240.PNG)
 
 
 
