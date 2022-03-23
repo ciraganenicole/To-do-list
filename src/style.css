@@ -1,0 +1,79 @@
+.toDo {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 2px solid white;
+  box-shadow: 2px 2px 2px 2px #f5f6f7;
+}
+
+h4 {
+  margin: 0;
+  padding: 10px;
+}
+
+input {
+  border: none;
+  padding: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ul #tasks {
+  display: flex;
+  flex-direction: column;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f5f6f7;
+  padding: 10px;
+}
+
+.task div {
+  display: flex;
+}
+
+.task button {
+  background-color: #fff;
+  border: none;
+  padding: 0;
+}
+
+a {
+  color: black;
+}
+
+.btn button {
+  background-color: #f5f6f7;
+  border: none;
+  color: #9d9494;
+}
+
+.text {
+  margin: 0 20px;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #f5f6f7;
+  text-align: center;
+}
+
+@media screen and (min-width: 900px) {
+  .toDo {
+    margin: 5rem 30rem;
+    border: 2px solid black;
+  }
+}
