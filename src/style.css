@@ -11,9 +11,15 @@ h4 {
   padding: 10px;
 }
 
+.table h4 {
+  border-bottom: 1px solid #f5f6f7;
+}
+
 input {
+  width: 94%;
   border: none;
   padding: 10px;
+  border-bottom: 1px solid #f5f6f7;
 }
 
 input:focus {
