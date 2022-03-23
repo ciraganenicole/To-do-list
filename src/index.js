@@ -2,7 +2,10 @@ import './style.css';
 
 class Tasks {
   constructor() {
-    this.tasks = [];
+    this.tasks = [
+      { description: 'Pray', completed: false, index: 0 },
+      { description: 'Study', completed: false, index: 1 },
+    ];
   }
 
     generate = () => {
