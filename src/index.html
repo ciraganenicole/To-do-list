@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>To Do List</title>
     <script src="https://kit.fontawesome.com/f6777e9957.js"></script>
+    <script src="../modules/addTask.bundle.js"></script>
+    <script src="../modules/remove.bundle.js"></script>
 </head>
 
 <body>
@@ -17,6 +19,7 @@
         </li>
         <li class="table">
             <input type="text" id="add" placeholder="Add tasks">
+            <input type="hidden" id="saveIndex" />
         </li>
         <li class="table">
             <ul id="tasks">
@@ -24,9 +27,10 @@
             </ul>
         </li>
         <li class="table btn">
-            <button type="button">Clear completed tasks</button>
+            <button type="button" id="clear">Clear completed tasks</button>
         </li>
     </ul>
+    <script src="./index.bundle.js"></script>
 </body>
 
 </html>
