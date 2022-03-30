@@ -12,6 +12,10 @@
 
 - HTML, CSS, JAVASCRIPT & WEBPACK
 
+## Live
+
+[Live Demo](https://ciraganenicole.github.io/To-do-list/)
+
 ## Getting Started
 
 

@@ -1,13 +1,13 @@
 class Task {
-  constructor(description, completed, index, editable) {
-    this.description = description;
-    this.completed = completed || false;
-    this.index = index;
-    this.editable = editable || false;
-  }
+    constructor(description, completed, index, editable) {
+        this.description = description;
+        this.completed = completed || false;
+        this.index = index;
+        this.editable = editable || false;
+    }
 
-  getHtml() {
-    return ` <li class="task" draggable="true">
+    getHtml() {
+            return ` <li class="task">
            <div class="description">
         <input type="checkbox" class="check"  id="checkbox-${this.index - 1}" ${this.completed ? 'checked' : ''}/>
         ${!this.editable ? `<p class="text">${this.description}</p>` : ''}
