@@ -14,7 +14,7 @@ describe('addTask', () => {
     test('Tasks is not empty', () => {
         expect(tasks.tasks.length).toBe(1);
     });
-    test('description value from add Task', () => {
+    test('Check if an item was removed', () => {
         expect(JSON.stringify(tasks.removeTask(0))).toBe(JSON.stringify([]));
     });
 
