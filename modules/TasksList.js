@@ -89,9 +89,13 @@ class Tasks {
     newTask(description, completed) {
         const task = new Task(description, completed, this.tasks.length + 1);
         this.tasks.push(task);
-        this.assignTasks();
         return task;
-    }
+      }
+      
+    displayTask(description, completed) {
+        this.newTask(description, completed);
+        this.assignTasks();
+      }
 
     getBookList() {
         let containerHtml = '';
