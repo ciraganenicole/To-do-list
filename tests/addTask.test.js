@@ -2,19 +2,33 @@
  * @jest-environment jsdom
  */
 import Tasks from '../modules/TasksList.js';
+import addTask from '../src/index.js'
 
 const tasks = new Tasks();
-const task = tasks.newTask('add a remove function', false);
+const task = tasks.newTask('add a remove function');
 
 describe('addTask', () => {
-  test('description value from add Task', () => {
-    const { description } = task;
-    expect(description).toBe('add a remove function');
-  });
-  test('Tasks is not empty', () => {
-    expect(tasks.tasks.length).toBe(1);
-  });
-  test('Check if an item was removed', () => {
-    expect(JSON.stringify(tasks.removeTask(0))).toBe(JSON.stringify([]));
-  });
+    window.localStorage = Storage.prototype;
+    const storage = JSON.parse(localStorage.getItem('taskData'))
+    test('Add one new item to the list', () => {
+
+        document.body.innerHTML =
+            '<ul id="tasks">' +
+            '  <li class="task"></li>' +
+            '</ul>';
+        addTask();
+        const list = document.querySelectorAll('#tasks li');
+        expect(list).toHaveLength(1);
+        expect(storage).not.toBeNull;
+
+    });
+    test('Add one new item to the list', () => {
+        document.body.innerHTML =
+            '<ul id="tasks">' -
+            '  <li class="task"></li>' -
+            '</ul>';
+        tasks.removeTask();
+        const list = document.querySelectorAll('#tasks li');
+        expect(list).toHaveLength(0);
+    });
 });
