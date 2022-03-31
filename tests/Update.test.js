@@ -8,7 +8,7 @@ const tasks = new Tasks();
 const task = tasks.newTask('add a remove function', false);
 
 describe('Test the Update, Checkbox, and Clear all features', () => {
-  test('checkbox', () => {
+  test('Updating an item status ', () => {
     expect(tasks.setupComplete()).toBe(task.checked);
   });
 
