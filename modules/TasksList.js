@@ -48,13 +48,19 @@ class Tasks {
         });
     }
 
+    removeTask(index) {
+        const newTasks = this.tasks.filter((t) => t.index !== index + 1);
+        return newTasks;
+    }
+
+
     setupRemove() {
         this.hamburger();
         const del = document.querySelectorAll('.del');
         del.forEach((button) => {
             const removeFunc = () => {
                 const index = parseInt(button.id.replace('del-', ''), 10);
-                const newTasks = this.tasks.filter((t) => t.index !== index + 1);
+                this.removeTask(index);
                 this.assignTasks(newTasks);
             };
             button.onclick = removeFunc;
@@ -90,12 +96,12 @@ class Tasks {
         const task = new Task(description, completed, this.tasks.length + 1);
         this.tasks.push(task);
         return task;
-      }
-      
+    }
+
     displayTask(description, completed) {
         this.newTask(description, completed);
         this.assignTasks();
-      }
+    }
 
     getBookList() {
         let containerHtml = '';
