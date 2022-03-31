@@ -55,6 +55,11 @@ class Tasks {
     return newTasks;
   }
 
+  editTask(index, description) {
+    this.tasks[index].description = description;
+    this.tasks[index].editable = false;
+  }
+
   setupRemove() {
     this.hamburger();
     const del = document.querySelectorAll('.del');
@@ -75,8 +80,7 @@ class Tasks {
         const input = document.getElementById(`input-${index}`);
         input.addEventListener('change', (e) => {
           e.preventDefault();
-          this.tasks[index].description = e.target.value;
-          this.tasks[index].editable = false;
+          this.editTask(index, e.target.value);
           this.assignTasks();
         });
       });
