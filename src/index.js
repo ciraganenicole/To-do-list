@@ -17,4 +17,4 @@ const addTask = () => {
 };
 addTask();
 
-module.exports = addTask;
+export default addTask;
