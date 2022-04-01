@@ -7,7 +7,7 @@ class Task {
   }
 
   getHtml() {
-    return ` <li class="task" draggable="true">
+    return ` <li class="task">
            <div class="description">
         <input type="checkbox" class="check"  id="checkbox-${this.index - 1}" ${this.completed ? 'checked' : ''}/>
         ${!this.editable ? `<p class="text">${this.description}</p>` : ''}
