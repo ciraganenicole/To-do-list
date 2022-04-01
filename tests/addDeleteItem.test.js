@@ -22,9 +22,10 @@ describe('addTask', () => {
 
   test('remove an item from the list', () => {
     const storage = JSON.parse(localStorage.getItem('taskData'));
+    document.body.innerHTML = '<ul id="tasks"></ul>';
+    const container = document.getElementById('tasks');
     storage.forEach((task) => {
-      document.body.innerHTML += `<ul id="tasks">
-        <li class="task">
+      container.innerHTML += `<li class="task">
         <div class="description">
         <input type="checkbox" class="check"  id="checkbox-${task.index - 1}" ${task.completed ? 'checked' : ''}/>
         ${!task.editable ? `<p class="text">${task.description}</p>` : ''}
@@ -34,10 +35,9 @@ describe('addTask', () => {
        <a href="#" class='edit'>Edit</a>
        </div>
        <button class="remove" id="remove-${task.index - 1}"><i class="fa-solid fa-ellipsis-vertical ellips"></i></button>
-       </li>
-    </ul>`;
+       </li>`;
     });
-    tasks.removeItem(0);
+    tasks.removeItem(1);
     const list = document.querySelectorAll('#tasks li');
     expect(list).toHaveLength(1);
   });

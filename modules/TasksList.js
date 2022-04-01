@@ -46,12 +46,13 @@ class Tasks {
 
   removeItem(index) {
     this.tasks = JSON.parse(localStorage.getItem('taskData'));
+    document.body.innerHTML = '<ul id="tasks"></ul>';
+    const container = document.getElementById('tasks');
     const newTasks = this.tasks.filter((t) => t.index !== index + 1);
     localStorage.setItem('taskData', JSON.stringify(newTasks));
     const storage = JSON.parse(localStorage.getItem('taskData'));
-    document.body.innerHTML = '<ul id="tasks"></ul>';
     storage.forEach((task) => {
-      document.body.innerHTML += `<ul id="tasks">
+      container.innerHTML += `
         <li class="task">
         <div class="description">
         <input type="checkbox" class="check"  id="checkbox-${task.index - 1}" ${task.completed ? 'checked' : ''}/>
@@ -62,8 +63,7 @@ class Tasks {
        <a href="#" class='edit'>Edit</a>
        </div>
        <button class="remove" id="remove-${task.index - 1}"><i class="fa-solid fa-ellipsis-vertical ellips"></i></button>
-       </li>
-    </ul>`;
+       </li>`;
     });
   }
 
@@ -73,8 +73,25 @@ class Tasks {
   }
 
   editTask(index, description) {
+    this.tasks = JSON.parse(localStorage.getItem('taskData'));
     this.tasks[index].description = description;
     this.tasks[index].editable = false;
+    localStorage.setItem('taskData', JSON.stringify(this.tasks));
+    document.body.innerHTML = '<ul id="tasks"></ul>';
+    const container = document.getElementById('tasks');
+    this.tasks.forEach((task) => {
+      container.innerHTML += `<li class="task">
+        <div class="description">
+        <input type="checkbox" class="check"  id="checkbox-${task.index - 1}" ${task.completed ? 'checked' : ''}/>
+        ${!task.editable ? `<p class="text">${task.description}</p>` : ''}
+        ${task.editable ? `<input value='${task.description}' id="input-${task.index - 1}"/>` : ''}</div>
+       <div id="myLinks-${task.index - 1}" style="display:none" class="list" >
+       <a href="#" class='del' id="del-${task.index - 1}">Delete</a>
+       <a href="#" class='edit'>Edit</a>
+       </div>
+       <button class="remove" id="remove-${task.index - 1}"><i class="fa-solid fa-ellipsis-vertical ellips"></i></button>
+       </li>`;
+    });
   }
 
   setupRemove() {
