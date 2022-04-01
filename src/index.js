@@ -6,14 +6,16 @@ const taskList = new Tasks();
 taskList.initialize();
 
 const addTask = () => {
-    const input = document.getElementById('add');
-    //input.value = '';
-    if (input) input.onchange = ((e) => {
-        e.preventDefault();
-        const description = e.target.value;
-        taskList.newTask(description);
-        e.target.value = '';
+  const input = document.getElementById('add');
+  // input.value = '';
+  if (input) {
+    input.onchange = ((e) => {
+      e.preventDefault();
+      const description = e.target.value;
+      taskList.newTask(description);
+      e.target.value = '';
     });
+  }
 };
 addTask();
 
